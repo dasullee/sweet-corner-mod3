@@ -4,7 +4,7 @@ import './footer.scss'
 export default () =>{
     return (
         <div>
-            <h1 className="center">This is the Footer.</h1>
+            <h1 className="center brown">This is the Footer.</h1>
         </div>
     )
 }
