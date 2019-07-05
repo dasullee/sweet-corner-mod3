@@ -22,7 +22,7 @@ export default () =>{
                         <p>Their delicious taste, great variety and their sweet universe, colorful and flavorful cupcakes make the best choice for a chic desert. How could you resist these delicious cupcakes?</p>
                     </div>
 
-                </div>
+                    </div>
                 <img className="main" src={require('../../assets/images/strips2.png')}></img>
                 
             </div>
