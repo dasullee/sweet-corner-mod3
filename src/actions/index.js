@@ -1,7 +1,5 @@
 import types from './types'
 import axios from 'axios'
-import dataJSON from '../../dist/data/schedule'
-
 
 export const getSchedule = () => async dispatch => {
     try {
@@ -20,7 +18,19 @@ export const getSchedule = () => async dispatch => {
         console.log(error)
     }
 }
-
+const BASE_URL = 'http://api.sc.lfzprototypes.com'
+export const getAllProducts = () => async dispatch => {
+    try {
+        const response = await axios.get(BASE_URL + '/api/products')
+        dispatch({
+            type: types.GET_ALL_PRODUCTS,
+            products: response.data.products
+        })
+    }
+    catch(error) {
+        console.log(error)
+    }
+}
 export default {
     getSchedule: getSchedule
 }
