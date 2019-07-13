@@ -1,4 +1,5 @@
 export default {
     FETCH_DATA: 'FETCH_DATA',
-    GOT_DATA: 'GOT_DATA'
+    GOT_DATA: 'GOT_DATA',
+    GET_ALL_PRODUCTS: 'GET_ALL_PRODUCTS'
 }

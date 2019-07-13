@@ -12,6 +12,9 @@ export default () => {
                 <Link className="link" to='/about'>ABOUT US</Link>
             </li>
             <li>
+                <Link className="link" to='/products'>PRODUCTS</Link>
+            </li>
+            <li>
                 <Link className="link" to='/services'>SERVICES</Link>
             </li>
             <li>
