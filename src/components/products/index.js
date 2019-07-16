@@ -9,12 +9,18 @@ class Products extends React.Component {
         console.log("Products Component Mounted")
         this.props.getAllProducts()
     }
+    goToDetails(id){
+        this.props.history.push(`/products/${id}`);
+    }
     render() {
         const {products} = this.props
         console.log(products)
         const productElements = products.map((product) => {
             return (
-                <ProductItem key={product.id} {...product}/>
+                <ProductItem 
+                    key={product.id}
+                    {...product}
+                    goToDetails={() => this.goToDetails(product.id)}/>
             )
             })
         return(

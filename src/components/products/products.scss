@@ -6,7 +6,11 @@
     position: relative;
     justify-content: center;
     text-align: center;
-    
+    cursor: pointer;
+}
+.product-item:hover {
+    background-color: lightpink;
+    border-radius: 25px
 }
 .containerCupCakes {
     justify-content: center;
