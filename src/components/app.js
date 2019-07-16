@@ -8,7 +8,7 @@ import Header from './header'
 import Home from './home'
 import Services from './services'
 import Products from './products'
-
+import ProductDetails from './products/product_details'
 
 
 const App = () => (
@@ -19,7 +19,8 @@ const App = () => (
             <Route path='/contact' component={Contact} />
             <Route exact path='/' component={Home} />
             <Route path='/services' component={Services} />
-            <Route path='/products' component={Products} />
+            <Route exact path='/products' component={Products} />
+            <Route path='/products/:product_id' component={ProductDetails} />
             <Footer/>
         </div>
     </div>
