@@ -1,4 +1,4 @@
-import types from '../actions'
+import types from '../actions/types'
 
 const DEFAULT_STATE = {
     list: [],
@@ -6,12 +6,15 @@ const DEFAULT_STATE = {
 }
 
 export default (state=DEFAULT_STATE, action) => {
-    switch(action.types){
+    
+    switch(action.type){
         case(types.GET_ALL_PRODUCTS) : 
+            console.log('HEEERE')
             return {
                 ...state,
                 list: action.products
             }
-        default: state
+        default: 
+            return state
     }
 }
