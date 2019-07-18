@@ -3,10 +3,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {getAllProducts} from '../../actions'
 import ProductItem from './product_item'
+import ProductDetails from './product_details'
 
 class Products extends React.Component {
     componentDidMount(){
-        console.log("Products Component Mounted")
+        // console.log("Products Component Mounted")
         this.props.getAllProducts()
     }
     goToDetails(id){
@@ -14,7 +15,6 @@ class Products extends React.Component {
     }
     render() {
         const {products} = this.props
-        console.log(products)
         const productElements = products.map((product) => {
             return (
                 <ProductItem 

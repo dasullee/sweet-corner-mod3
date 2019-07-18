@@ -1,0 +1,26 @@
+@font-face {
+    font-family: Allura;
+    src: url('../../assets/fonts/Allura-Regular.ttf')
+}
+.product-details {
+    // box-sizing: border-box;
+    display: table
+}
+.productImage {
+    width: 42%;
+    float: left;
+    padding: 40px
+}
+.text {
+    width: 42%;
+    float: left;
+    margin: 50px;
+    color:#754b23;
+    
+}
+.right {
+    float: right
+}
+.caption {
+    font-family: Allura
+}
