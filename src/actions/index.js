@@ -31,6 +31,18 @@ export const getAllProducts = () => async dispatch => {
         console.log(error)
     }
 }
+export const getProductDetails = (productID) => async dispatch => {
+    try {
+        const response = await axios.get(`${BASE_URL}/api/products/${productID}`)
+        dispatch({
+            type: types.GET_PRODUCT_DETAILS,
+            product: response.data
+        })
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
 export default {
     getSchedule: getSchedule
 }
