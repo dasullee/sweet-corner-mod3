@@ -8,13 +8,12 @@ import './schedule.scss'
 class Schedule extends React.Component{
     componentDidMount(){
         this.props.getSchedule()
-        console.log(this.props.scheduleList)
     }
     
     render(){
-        const tableRow = this.props.scheduleList.map(daily => {
+        const tableRow = this.props.scheduleList.map((daily,index) => {
             return (
-            <tr>
+            <tr key={index} >
                 <td className="day">{daily.day}</td>
                 <td className="hours">{daily.open} - {daily.close}</td>
             </tr>
@@ -32,7 +31,6 @@ class Schedule extends React.Component{
     }
 }
 function mapStateToProps(state){
-    // console.log(state)
     return {
         scheduleList: state.schedule.scheduleList
     }
