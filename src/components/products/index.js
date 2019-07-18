@@ -7,7 +7,6 @@ import ProductDetails from './product_details'
 
 class Products extends React.Component {
     componentDidMount(){
-        // console.log("Products Component Mounted")
         this.props.getAllProducts()
     }
     goToDetails(id){

@@ -43,6 +43,13 @@ export const getProductDetails = (productID) => async dispatch => {
         console.log(error)
     }
 }
+export const clearProductDetails = () => (
+    
+    {
+        type: types.CLEAR_PRODUCT_DETAILS
+    }
+    
+)
 export default {
     getSchedule: getSchedule
 }
