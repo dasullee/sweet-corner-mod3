@@ -5,12 +5,37 @@ import './product-details.scss'
 import Money from '../general/money'
 
 class ProductDetails extends React.Component{
+    constructor(props) {
+        super(props)
+        this.state = {
+            quantity: 1
+        }
+    }
     componentDidMount() {
         const {getProductDetails, match: {params}} = this.props
         getProductDetails(params.product_id)
     }
     componentWillUnmount() {
         this.props.clearProductDetails()
+    }
+    incrementQuantity = () => {
+        const {quantity} = this.state
+        this.setState({
+            quantity: quantity + 1
+        })
+        return this.state.quantity
+    }
+    decrementQuantity = () => {
+        const {quantity} = this.state
+        if (quantity > 1) {
+            this.setState({
+                quantity: quantity - 1
+            })
+        }
+        return this.state.quantity
+    }
+    handleAddToCart = () => {
+        console.log(`Add ${this.state.quantity} items to cart, with product ID: ${this.props.product.id}`)
     }
     render() {
         const {product} = this.props
@@ -28,6 +53,15 @@ class ProductDetails extends React.Component{
                         <h2>Description</h2>
                         <p>{product.description}</p>
                         <h1 className="right">{Money(product.cost)}</h1>
+                    </div>
+                    <div className="text">
+                        <h2>Quantity</h2>
+                        <div className="quantity">
+                            <button className="btnNum teel" onClick={this.decrementQuantity}>-</button>
+                            <span className="numQuantity">{this.state.quantity}</span>
+                            <button className="btnNum teel" onClick={this.incrementQuantity}>+</button>
+                            <button className="btnQuantity teel" onClick={this.handleAddToCart}>Add to Cart</button>
+                        </div>
                     </div>
                 </div>
             )

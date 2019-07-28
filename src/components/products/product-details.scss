@@ -4,7 +4,8 @@
 }
 .product-details {
     // box-sizing: border-box;
-    display: table
+    display: table;
+    position: relative;
 }
 .productImage {
     width: 42%;
@@ -19,8 +20,39 @@
     
 }
 .right {
-    float: right
+    position: absolute;
+    right: 110px;
+    display: inline-block
+    // float: right
 }
 .caption {
     font-family: Allura
+}
+.quantity {
+    float:right;
+}
+.btnNum {
+    padding: 5px 15px;
+    margin-top: 5px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+.numQuantity {
+    font-size: 35px;
+    padding: 13px 15px 5px 15px;
+    margin: 10px;
+    background-color: rgba(60, 60, 60, 0.1);
+}
+.btnQuantity {
+    // width: ;
+    // height: 50px;
+    margin: 3px;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    vertical-align: top;
+    font-weight: bold;
+    margin-left: 30px;
+    cursor: pointer;
 }
