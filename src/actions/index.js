@@ -50,6 +50,30 @@ export const clearProductDetails = () => (
     }
     
 )
+export const addItemToCart = (productID, quantity) => async dispatch => {
+    try {
+        const cartToken = localStorage.getItem('sc-cart-token');
+        const axiosConfig = {
+            headers: {
+                'X-Cart-Token': cartToken
+            }
+        }
+        const response = await axios.post(`${BASE_URL}/api/cart/items/${productID}`, {
+            quantity: quantity
+         }, axiosConfig)
+         localStorage.setItem('sc-cart-token', response.data.cartToken)
+         
+         dispatch({
+             type: types.ADD_ITEMS_TO_CART,
+             cartTotal: response.data.total
+         })
+    }
+    catch(error) {
+        console.log('Add Item To Cart Error: Something Went Wrong')
+        console.log(error)
+    }
+}
+
 export default {
     getSchedule: getSchedule
 }
