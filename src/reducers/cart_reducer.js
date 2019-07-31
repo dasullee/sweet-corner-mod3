@@ -3,7 +3,7 @@ import types from '../actions/types'
 const DEFAULT_STATE = {
     total: null,
     cartID: null,
-    items: null
+    items: []
 }
 
 export default(state = DEFAULT_STATE, action) => {

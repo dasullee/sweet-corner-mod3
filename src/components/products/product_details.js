@@ -34,9 +34,9 @@ class ProductDetails extends React.Component{
         }
         return this.state.quantity
     }
-    handleAddToCart = () => {
-        // console.log(`Add ${this.state.quantity} items to cart, with product ID: ${this.props.product.id}`)
-        this.props.addItemToCart(this.props.product.id, this.state.quantity)
+    async handleAddToCart(){
+        await this.props.addItemToCart(this.props.product.id, this.state.quantity)
+        this.props.history.push('/cart')
     }
     render() {
         const {product} = this.props
@@ -61,7 +61,7 @@ class ProductDetails extends React.Component{
                             <button className="btnNum teel" onClick={this.decrementQuantity}>-</button>
                             <span className="numQuantity">{this.state.quantity}</span>
                             <button className="btnNum teel" onClick={this.incrementQuantity}>+</button>
-                            <button className="btnQuantity teel" onClick={this.handleAddToCart}>Add to Cart</button>
+                            <button className="btnQuantity teel" onClick={this.handleAddToCart.bind(this)}>Add to Cart</button>
                         </div>
                     </div>
                 </div>

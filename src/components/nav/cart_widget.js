@@ -8,7 +8,6 @@ class CartWidget extends React.Component {
         this.props.getCartTotals()
     }
     render(){
-        console.log('Cart Widget Props:', this.props.total);
         return(
             <li className="cart-widget">
                 <Link to="/cart">
