@@ -9,7 +9,7 @@ export default(state = DEFAULT_STATE, action) => {
         case types.ADD_ITEMS_TO_CART:
             return {
                 ...state,
-                total: actions.cartTotal
+                total: action.cartTotal
             }
         default:
             return state
