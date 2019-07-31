@@ -62,7 +62,6 @@ export const addItemToCart = (productID, quantity) => async dispatch => {
             quantity: quantity
          }, axiosConfig)
          localStorage.setItem('sc-cart-token', response.data.cartToken)
-         
          dispatch({
              type: types.ADD_ITEMS_TO_CART,
              cartTotal: response.data.total
@@ -73,7 +72,24 @@ export const addItemToCart = (productID, quantity) => async dispatch => {
         console.log(error)
     }
 }
-
+export const getActiveCart = () => async dispatch => {
+    try {
+        const cartToken = localStorage.getItem('sc-cart-token')
+        const axiosConfig = {
+            headers: {
+                'X-Cart-Token': cartToken
+            }
+        }
+        const response = await axios.get(`${BASE_URL}/api/cart`, axiosConfig)
+        dispatch({
+            type: types.GET_ACTIVE_CART,
+            cart: response.data
+        })
+    }
+    catch(error){
+        console.log("Error in Cart:", error)
+    }
+}
 export default {
     getSchedule: getSchedule
 }

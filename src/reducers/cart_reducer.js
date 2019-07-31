@@ -1,7 +1,9 @@
 import types from '../actions/types'
 
 const DEFAULT_STATE = {
-    total: null
+    total: null,
+    cartID: null,
+    items: null
 }
 
 export default(state = DEFAULT_STATE, action) => {
@@ -9,7 +11,14 @@ export default(state = DEFAULT_STATE, action) => {
         case types.ADD_ITEMS_TO_CART:
             return {
                 ...state,
-                total: actions.cartTotal
+                total: action.cartTotal
+            }
+        case types.GET_ACTIVE_CART:
+            return {
+                ...state,
+                cartID: action.cart.cartID,
+                items: action.cart.items,
+                total: action.cart.total
             }
         default:
             return state
