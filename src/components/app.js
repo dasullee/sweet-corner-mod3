@@ -9,6 +9,7 @@ import Home from './home'
 import Services from './services'
 import Products from './products'
 import ProductDetails from './products/product_details'
+import Cart from './cart'
 
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
             <Route path='/services' component={Services} />
             <Route exact path='/products' component={Products} />
             <Route path='/products/:product_id' component={ProductDetails} />
+            <Route path='/cart' component={Cart} />
             <Footer/>
         </div>
     </div>
