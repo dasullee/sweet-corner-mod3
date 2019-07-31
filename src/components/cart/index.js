@@ -8,7 +8,6 @@ class Cart extends React.Component {
         this.props.getActiveCart()
     }
     render() {
-        console.log('Cart Items:', this.props.cartItems);
         return(
             <div>
                 <h1 className="center">Cart</h1>

@@ -90,6 +90,24 @@ export const getActiveCart = () => async dispatch => {
         console.log("Error in Cart:", error)
     }
 }
+export const getCartTotals = () => async dispatch => {
+    try {
+        const cartToken = localStorage.getItem('sc-cart-token')
+        const axiosConfig = {
+            headers: {
+                'X-Cart-Token': cartToken
+            }
+        }
+        const response = await axios.get(`${BASE_URL}/api/cart/totals`, axiosConfig)
+        dispatch({
+            type: types.GET_CART_TOTALS,
+            total: response.data.total
+        })
+    }
+    catch(error) {
+        console.log('Error getting cart totals:', error);
+    }
+}
 export default {
     getSchedule: getSchedule
 }
