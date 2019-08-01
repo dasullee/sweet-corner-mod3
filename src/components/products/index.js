@@ -3,7 +3,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {getAllProducts} from '../../actions'
 import ProductItem from './product_item'
-import ProductDetails from './product_details'
 
 class Products extends React.Component {
     componentDidMount(){

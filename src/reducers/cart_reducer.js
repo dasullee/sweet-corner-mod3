@@ -25,6 +25,10 @@ export default(state = DEFAULT_STATE, action) => {
                 ...state,
                 total: action.total
             }
+        case types.CREATE_GUEST_ORDER:
+            return {
+                ...DEFAULT_STATE
+            }
         default:
             return state
     }
