@@ -5,7 +5,9 @@ import {getCartTotals} from '../../actions'
 
 class CartWidget extends React.Component {
     componentDidMount(){
-        this.props.getCartTotals()
+        if (this.props.total>0 ){
+            this.props.getCartTotals()
+        }
     }
     render(){
         return(

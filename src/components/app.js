@@ -11,6 +11,7 @@ import Products from './products'
 import ProductDetails from './products/product_details'
 import Cart from './cart'
 import GuestCheckout from './checkout/guest_checkout'
+import GuestOrderDetails from './orders/guest_order_details'
 
 
 const App = () => (
@@ -25,6 +26,7 @@ const App = () => (
             <Route path='/products/:product_id' component={ProductDetails} />
             <Route path='/cart' component={Cart} />
             <Route path='/checkout/guest' component={GuestCheckout} />
+            <Route path='/order/guest/:order_id' component={GuestOrderDetails} />
             <Footer/>
         </div>
     </div>

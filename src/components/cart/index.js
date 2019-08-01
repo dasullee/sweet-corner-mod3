@@ -5,7 +5,9 @@ import {getActiveCart} from '../../actions'
 
 class Cart extends React.Component {
     componentDidMount() {
-        this.props.getActiveCart()
+        if (this.props.total >0){
+            this.props.getActiveCart()
+        }
     }
     handleCheckoutGuest = () => {
         this.props.history.push('/checkout/guest')
@@ -35,10 +37,10 @@ class Cart extends React.Component {
                         </tr>
                         {this.props.cartItems ? tableProducts : <tr></tr>}
                         <tr >
-                            <td className="white"></td>
-                            <td className="blue mergeCells" colSpan="2">Cart Total:</td>
-                            <td className="blue">{this.props.total ? this.props.total.items : 0}</td>
-                            <td className="blue">${this.props.total ? this.props.total.cost/100 : 0}</td>
+                            <td></td>
+                            <td className="mergeCells" colSpan="2">Cart Total:</td>
+                            <td>{this.props.total ? this.props.total.items : 0}</td>
+                            <td>${this.props.total ? this.props.total.cost/100 : 0}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -48,7 +50,6 @@ class Cart extends React.Component {
     }
 }
 function mapStateToProps(state){
-    console.log("state", state)
     return {
         cartItems: state.cart.items,
         total: state.cart.total
