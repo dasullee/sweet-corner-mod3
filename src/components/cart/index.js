@@ -5,9 +5,13 @@ import {getActiveCart} from '../../actions'
 
 class Cart extends React.Component {
     componentDidMount() {
-        if (this.props.total >0){
-            this.props.getActiveCart()
-        }
+        // console.log("props before getActive", this.props)
+        // if (this.props.total && this.props.total.items != null){
+        //     this.props.getActiveCart()
+        // }
+        
+        this.props.getActiveCart();
+        
     }
     handleCheckoutGuest = () => {
         this.props.history.push('/checkout/guest')
@@ -27,7 +31,7 @@ class Cart extends React.Component {
             <div className="checkoutOutline">
                 <h1 className="heading center brown">Cart</h1>
                 <table align="center">
-                    <tbody>
+                    <tbody className="cartTable">
                         <tr className="brown">
                             <th>Image</th>
                             <th>Product</th>
