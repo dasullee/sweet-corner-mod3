@@ -54,24 +54,32 @@ export const addItemToCart = (productID, quantityAmnt) => async dispatch => {
     try {
         const cartToken = localStorage.getItem('sc-cart-token');
         const axiosConfig = {
+            headers: {
                 'X-Cart-Token': cartToken
             
+            }
         }
-        const response = await axios.post(`${BASE_URL}/api/cart/items/${productID}`, {quantity: quantityAmnt}, axiosConfig)
-        
+        const response = await axios.post(`${BASE_URL}/api/cart/items/${productID}`, {
+            quantity: quantityAmnt
+        },axiosConfig)
+        console.log("adding to cart:", response)
         localStorage.setItem('sc-cart-token', response.data.cartToken)
+        
         dispatch({
             type: types.ADD_ITEMS_TO_CART,
             cartTotal: response.data.total
         })
+        console.log("response.data.total", response)
     }
     catch(error) {
         console.log('Add Item To Cart Error: Something Went Wrong')
         console.log(error)
     }
 }
+
 export const getActiveCart = () => async dispatch => {
     try {
+       
         const cartToken = localStorage.getItem('sc-cart-token')
         const axiosConfig = {
             headers: {
@@ -79,10 +87,13 @@ export const getActiveCart = () => async dispatch => {
             }
         }
         const response = await axios.get(`${BASE_URL}/api/cart`, axiosConfig)
+        
+        console.log("RESPONSE", response)
         dispatch({
             type: types.GET_ACTIVE_CART,
             cart: response.data
         })
+        console.log("it worked")
     }
     catch(error){
         console.log("Error in Cart:", error)
@@ -129,6 +140,19 @@ export const createGuestOrder = guest => async dispatch => {
         }
     } catch (error) {
         console.log('Error with guest checkout:', error)
+    }
+}
+export const getGuestOrderDetails = (orderId, email) => async dispatch => {
+    try {
+        const response = await axios.get(`${BASE_URL}/api/orders/guest/${orderId}${email}`)
+        console.log("in reducer")
+        dispatch({
+            type: types.GET_GUEST_ORDER_DETAILS,
+            guestOrder: response.data
+        })
+    }
+    catch(error){
+        console.log(error)
     }
 }
 export default {

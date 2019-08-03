@@ -3,7 +3,8 @@ import types from '../actions/types'
 const DEFAULT_STATE = {
     total: null,
     cartID: null,
-    items: []
+    items: [],
+    guestOrderDetails: []
 }
 
 export default(state = DEFAULT_STATE, action) => {
@@ -14,6 +15,8 @@ export default(state = DEFAULT_STATE, action) => {
                 total: action.cartTotal
             }
         case types.GET_ACTIVE_CART:
+            
+            console.log("from reducer:", action)
             return {
                 ...state,
                 cartID: action.cart.cartID,
@@ -29,6 +32,7 @@ export default(state = DEFAULT_STATE, action) => {
             return {
                 ...DEFAULT_STATE
             }
+        
         default:
             return state
     }
